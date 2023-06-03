@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap");
+
+:root {
+  /* Colors */
+  --bg-color: #0b0d17;
+  --text-color: #ffffff;
+  --color-2: #d0d6f9;
+  /* Typography */
+  /* font-family: "Bellefair", serif; */
+  /* font-family: "Barlow Condensed", sans-serif; */
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+}
+.home-img img {
+  width: 100vw;
+  height: 100vh;
+}
+.container {
+  position: absolute;
+  top: 60px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1em;
+  align-items: center;
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+}
+.line {
+  width: 40rem;
+  opacity: 50%;
+}
+#logo {
+  position: relative;
+  left: 55px;
+}
+.blurbox {
+  position: absolute;
+  width: 60%;
+  height: 96px;
+  right: 0px;
+  top: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40.7742px);
+}
+.navLinks {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 22px;
+  text-transform: uppercase;
+  padding-bottom: 2.3rem;
+  border-bottom: 4px solid transparent; 
+  transition: border-bottom 1s ease-in-out;
+}
+
+.navLinks:hover {
+  border-bottom: 2px solid var(--text-color);
+
+}
