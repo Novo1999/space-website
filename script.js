@@ -5,6 +5,7 @@ const homeBg = document.querySelector('.home-img');
 const planetBg = document.querySelector('.planet-bg');
 const headline = document.querySelector('.headline');
 const exploreBtn = document.querySelector('.exploreBtn');
+// Planet Navbar
 const planet = document.querySelector('.planets');
 const planetTab = document.querySelectorAll('.planet-name');
 
@@ -125,26 +126,27 @@ const text = {
 };
 
 const destinationsObj = text.destinations;
-console.log(destinationsObj.length);
 
 function homeActiveState() {
   document.querySelector('.home').classList.add('tab-border');
   document.querySelector('.moon').classList.add('mini-tab-border');
 }
 homeActiveState();
+
 navBtn.forEach(btn =>
   btn.addEventListener('click', e => {
-    btn.classList.remove('tab-border');
+    planet.style.display = 'none';
     if (e.currentTarget.classList.contains('home')) {
       modifyStyle(navBtn, e);
       showTabContent('block', 'grid', 'none');
-      planet.style.display = 'none';
-    }
-    if (e.currentTarget.classList.contains('dest')) {
+    } else if (e.currentTarget.classList.contains('dest')) {
       modifyStyle(navBtn, e);
       showTabContent('none', 'none', 'block');
       destination.style.display = 'grid';
       planet.style.display = 'flex';
+    } else if (e.currentTarget.classList.contains('crew')) {
+      modifyStyle(navBtn, e);
+      headline.style.display = 'none';
     }
   })
 );
@@ -196,13 +198,13 @@ function planetHTML(planet, description, distance, time) {
 function changePlanet() {
   planetTab.forEach((planet, index) =>
     planet.addEventListener('click', e => {
-      console.log(planetTab);
-      console.log(e.currentTarget);
       if (
         e.currentTarget.classList.contains(
           destinationsObj[index].name.toLowerCase()
         )
       ) {
+        planetTab.forEach(btn => btn.classList.remove('mini-tab-border'));
+        e.currentTarget.classList.add('mini-tab-border');
         planetHTML(
           destinationsObj[index].name,
           destinationsObj[index].description,

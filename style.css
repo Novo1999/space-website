@@ -172,9 +172,9 @@ body {
 }
 .planets {
   font-family: var(--font-family-2);
-  position: relative;
-  left: 72.2rem;
-  bottom: 48rem;
+  position: absolute;
+  left: 60%;
+  bottom: 68%;
   display: flex;
   gap: 2em;
   display: none;
