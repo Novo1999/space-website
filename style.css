@@ -84,7 +84,7 @@ body {
   /* grid-auto-rows: auto; */
   gap: 35rem;
   position: absolute;
-  top: 387px;
+  top: 340px;
   margin-left: 10rem;
   color: var(--text-color);
   left: 10%;
@@ -171,8 +171,13 @@ body {
   color: var(--text-color);
 }
 .planets {
+  font-family: var(--font-family-2);
+  position: relative;
+  left: 72.2rem;
+  bottom: 48rem;
   display: flex;
   gap: 2em;
+  display: none;
 }
 .planets a {
   font-size: 1.3rem;
@@ -233,7 +238,7 @@ p,
 .distance-time {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 20rem;
+  width: 25rem;
 }
 .planet-title {
   font-size: 6em;
