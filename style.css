@@ -7,8 +7,8 @@
   --text-color: #ffffff;
   --color-2: #d0d6f9;
   /* Typography */
-  /* font-family: "Bellefair", serif; */
-  /* font-family: "Barlow Condensed", sans-serif; */
+  --font-family-1: "Bellefair", serif;
+  --font-family-2: "Barlow Condensed", sans-serif;
 }
 
 body {
@@ -16,6 +16,7 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
+  overflow: hidden;
 }
 .home-img img {
   width: 100vw;
@@ -26,11 +27,12 @@ body {
   top: 60px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: auto;
+  /* grid-auto-rows: auto; */
   grid-gap: 1em;
   align-items: center;
   text-align: center;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: var(--font-family-2);
+  right: 7rem;
 }
 .line {
   width: 40rem;
@@ -39,6 +41,10 @@ body {
 #logo {
   position: relative;
   left: 55px;
+  transition: transform 1s ease-in-out;
+}
+#logo:hover {
+  transform: rotate(360deg);
 }
 .blurbox {
   position: absolute;
@@ -55,11 +61,62 @@ body {
   font-size: 22px;
   text-transform: uppercase;
   padding-bottom: 2.3rem;
-  border-bottom: 4px solid transparent; 
-  transition: border-bottom 1s ease-in-out;
+  border-bottom: 4px solid transparent;
+  transition: border-bottom 0.5s ease-in-out;
 }
 
 .navLinks:hover {
   border-bottom: 2px solid var(--text-color);
-
+}
+.container-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-auto-rows: auto; */
+  gap: 35rem;
+  position: absolute;
+  top: 387px;
+  margin-left: 10rem;
+  color: var(--text-color);
+  left: 165px;
+  cursor: context-menu;
+}
+.hero-text h1 {
+  font-family: var(--font-family-2);
+  letter-spacing: 4.75px;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+.space {
+  font-family: var(--font-family-1);
+  font-size: 150px;
+  text-transform: uppercase;
+  position: relative;
+  left: -1rem;
+}
+.exploreBtn {
+  position: absolute;
+  right: 15%;
+  border-radius: 50%;
+  width: 13rem;
+  height: 13rem;
+  cursor: pointer;
+  margin-top: 8rem;
+  transition: box-shadow 0.3s ease;
+}
+.exploreBtn:hover{
+  box-shadow: #d0d6f957 0 0 0px 5em;
+}
+.exploreBtn h1 {
+  font-family: var(--font-family-1);
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  letter-spacing: 2px;
+}
+.hero-text p {
+  font-family: var(--font-family-2);
+  line-height: 32px;
+  font-size: 1.35rem;
 }
