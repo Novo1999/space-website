@@ -194,7 +194,7 @@ exploreBtn.addEventListener('click', () => {
   planet.style.display = 'flex';
 });
 function planetHTML(planet, description, distance, time) {
-  destination.innerHTML = `<img class="planet-img" src="/assets/destination/image-${planet}.png" alt="" />
+  destination.innerHTML = `<img class="planet-img" src="/assets/destination/image-${planet}.webp" alt="" />
   <div class="planet-section">
     <h1 class="planet-title">${planet}</h1>
     <p class="planet-description">
