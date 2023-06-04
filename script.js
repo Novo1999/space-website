@@ -16,6 +16,11 @@ const crew = document.querySelector('.show-crew');
 const crewBtn = document.querySelectorAll('.crew-btn');
 const crewContent = document.querySelector('.crew-content');
 const crewImg = document.querySelector('.crew-img');
+// Tech
+const techSection = document.querySelector('.show-tech');
+const spaceBtn = document.querySelectorAll('.space-btn');
+const techContent = document.querySelector('.tech-container');
+const techImg = document.querySelector('.insert');
 const text = {
   destinations: [
     {
@@ -134,6 +139,7 @@ const text = {
 
 const destinationsObj = text.destinations;
 const crewObj = text.crew;
+const techObj = text.technology;
 function homeActiveState() {
   document.querySelector('.home').classList.add('tab-border');
   document.querySelector('.moon').classList.add('mini-tab-border');
@@ -145,15 +151,18 @@ navBtn.forEach(btn =>
     planet.style.display = 'none';
     if (e.currentTarget.classList.contains('home')) {
       modifyStyle(navBtn, e);
-      showTabContent('block', 'grid', 'none', 'none');
+      showTabContent('block', 'grid', 'none', 'none', 'none');
     } else if (e.currentTarget.classList.contains('dest')) {
       modifyStyle(navBtn, e);
-      showTabContent('none', 'none', 'block', 'none', 'flex');
+      showTabContent('none', 'none', 'block', 'none', 'none', 'flex');
       destination.style.display = 'grid';
     } else if (e.currentTarget.classList.contains('crew')) {
       modifyStyle(navBtn, e);
-      showTabContent('none', 'none', 'none', 'block');
+      showTabContent('none', 'none', 'none', 'block', 'none');
       headline.style.display = 'block';
+    } else if (e.currentTarget.classList.contains('tech')) {
+      modifyStyle(navBtn, e);
+      showTabContent('none', 'none', 'none', 'none', 'block');
     }
   })
 );
@@ -167,14 +176,15 @@ function modifyStyle(navBtn, e) {
 // disp2 = grid
 // disp3 = none
 
-function showTabContent(disp1, disp2, disp3, disp4, extra) {
+function showTabContent(disp1, disp2, disp3, disp4, extra, extra2) {
   homePage.style.display = disp2;
   homeBg.style.display = disp1;
   headline.style.display = disp3;
   planetBg.style.display = disp3;
   destination.style.display = disp3;
   crew.style.display = disp4;
-  planet.style.display = extra;
+  planet.style.display = extra2;
+  techSection.style.display = extra;
 }
 exploreBtn.addEventListener('click', () => {
   showTabContent('none', 'none', 'block');
@@ -251,3 +261,37 @@ function changeCrew() {
 }
 changeCrew();
 console.log('Douglas Hurley'.toLowerCase().split(' ').join('-'));
+
+function techHTML(name, description) {
+  const img = name.toLowerCase().split(' ').join('-');
+  techContent.innerHTML = `<div class="tech-content"> 
+  <h3>The terminology...</h3>
+  <h1>${name}</h1>
+  <p>
+    ${description}
+  </p>
+</div>
+<img
+src="/assets/technology/image-${img}-portrait.jpg"
+alt=""
+/>`;
+}
+
+function changeTech() {
+  spaceBtn.forEach((btn, i) => {
+    btn.addEventListener('click', e => {
+      spaceBtn.forEach(btn => {
+        btn.style.backgroundColor = 'transparent';
+        btn.style.color = 'white';
+      });
+      if (e.currentTarget.classList.contains(`btn-${i + 1}`)) {
+        techHTML(techObj[i].name, techObj[i].description);
+        e.currentTarget.style.backgroundColor = 'var(--text-color)';
+        e.currentTarget.style.color = 'black';
+      }
+    });
+  });
+}
+changeTech();
+
+console.log(document.querySelector('.space-img').innerHTML);

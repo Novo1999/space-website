@@ -17,7 +17,7 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  /* overflow: hidden; CHANGE*/
+  overflow-x: hidden;
 }
 .homepage {
   /* display: none; */
@@ -291,7 +291,7 @@ p,
   top: 8rem;
   color: var(--text-color);
   gap: 1rem;
-  margin-left: 25rem;
+  margin-left: 20rem;
   animation: slide 0.3s linear;
 }
 @keyframes slide {
@@ -306,6 +306,7 @@ p,
   position: relative;
   height: 45rem;
   animation: slideIn 0.3s linear;
+  top: 1rem;
 }
 .crew-content p {
   word-wrap: break-word;
@@ -370,12 +371,93 @@ p,
   text-transform: uppercase;
   font-family: var(--font-family-2);
   position: relative;
-  right: 12rem;
+  right: 5rem;
   font-weight: 400;
   /* display: none; */
 }
 .btn-1 {
   background-color: var(--text-color);
+}
+.space-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: transparent;
+  font-family: var(--font-family-1);
+  font-size: 20px;
+  transition: background-color 0.3s linear;
+  cursor: pointer;
+  color: white;
+  top: 15em;
+  left: 14rem;
+  z-index: 2;
+}
+.btn-effect {
+  background-color: white;
+}
+.space-btn:hover {
+  background-color: white;
+  color: black;
+}
+.spaceBg img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  margin-left: 14.2rem;
+  bottom: 0.1rem;
+  right: 0.1rem;
+  animation: slide 0.3s linear;
+}
+.tech-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  left: 10rem;
+  bottom: 5rem;
+  animation: slide 0.3s linear;
+}
+.tech-content {
+  margin-left: 14rem;
+}
+.tech-container p {
+  word-wrap: break-word;
+  width: 420px;
+  font-size: 22px;
+}
+.tech-container h1 {
+  font-family: var(--font-family-1);
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 3.5rem;
+}
+.headline-tech {
+  color: var(--text-color);
+  position: relative;
+  /* bottom: 50rem; */
+  left: 12%;
+  color: var(--text-color);
+  font-family: var(--font-family-2);
+  text-transform: uppercase;
+  font-weight: 400;
+  z-index: 2;
+  top: 13rem;
+}
+.btn-1 {
+  background-color: var(--text-color);
+  color: black;
+}
+.show-tech {
+  display: none;
+}
+.space-img img {
+  animation: slide 0.3s linear;
 }
 @media screen and (max-width: 119rem) {
   body {
