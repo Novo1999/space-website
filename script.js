@@ -260,7 +260,7 @@ function changeCrew() {
   });
 }
 changeCrew();
-console.log('Douglas Hurley'.toLowerCase().split(' ').join('-'));
+
 
 function techHTML(name, description) {
   const img = name.toLowerCase().split(' ').join('-');

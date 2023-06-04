@@ -17,7 +17,7 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .homepage {
   /* display: none; */
