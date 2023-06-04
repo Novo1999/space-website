@@ -2,13 +2,20 @@ const navBtn = document.querySelectorAll('.navLinks');
 const homePage = document.querySelector('.homepage');
 const destination = document.querySelector('.container-destination');
 const homeBg = document.querySelector('.home-img');
-const planetBg = document.querySelector('.planet-bg');
 const headline = document.querySelector('.headline');
+const headlineCrew = document.querySelector('.head-crew');
+
 const exploreBtn = document.querySelector('.exploreBtn');
-// Planet Navbar
+// Planet
 const planet = document.querySelector('.planets');
 const planetTab = document.querySelectorAll('.planet-name');
-
+const planetBg = document.querySelector('.planet-bg');
+const planetSection = document.querySelector('.planet-section');
+// Crew
+const crew = document.querySelector('.show-crew');
+const crewBtn = document.querySelectorAll('.crew-btn');
+const crewContent = document.querySelector('.crew-content');
+const crewImg = document.querySelector('.crew-img');
 const text = {
   destinations: [
     {
@@ -126,7 +133,7 @@ const text = {
 };
 
 const destinationsObj = text.destinations;
-
+const crewObj = text.crew;
 function homeActiveState() {
   document.querySelector('.home').classList.add('tab-border');
   document.querySelector('.moon').classList.add('mini-tab-border');
@@ -138,15 +145,15 @@ navBtn.forEach(btn =>
     planet.style.display = 'none';
     if (e.currentTarget.classList.contains('home')) {
       modifyStyle(navBtn, e);
-      showTabContent('block', 'grid', 'none');
+      showTabContent('block', 'grid', 'none', 'none');
     } else if (e.currentTarget.classList.contains('dest')) {
       modifyStyle(navBtn, e);
-      showTabContent('none', 'none', 'block');
+      showTabContent('none', 'none', 'block', 'none', 'flex');
       destination.style.display = 'grid';
-      planet.style.display = 'flex';
     } else if (e.currentTarget.classList.contains('crew')) {
       modifyStyle(navBtn, e);
-      headline.style.display = 'none';
+      showTabContent('none', 'none', 'none', 'block');
+      headline.style.display = 'block';
     }
   })
 );
@@ -160,12 +167,14 @@ function modifyStyle(navBtn, e) {
 // disp2 = grid
 // disp3 = none
 
-function showTabContent(disp1, disp2, disp3) {
+function showTabContent(disp1, disp2, disp3, disp4, extra) {
   homePage.style.display = disp2;
   homeBg.style.display = disp1;
   headline.style.display = disp3;
   planetBg.style.display = disp3;
   destination.style.display = disp3;
+  crew.style.display = disp4;
+  planet.style.display = extra;
 }
 exploreBtn.addEventListener('click', () => {
   showTabContent('none', 'none', 'block');
@@ -196,8 +205,9 @@ function planetHTML(planet, description, distance, time) {
 }
 
 function changePlanet() {
-  planetTab.forEach((planet, index) =>
+  planetTab.forEach((planet, index) => {
     planet.addEventListener('click', e => {
+      console.log(index);
       if (
         e.currentTarget.classList.contains(
           destinationsObj[index].name.toLowerCase()
@@ -212,7 +222,32 @@ function changePlanet() {
           destinationsObj[index].travel
         );
       }
-    })
-  );
+    });
+  });
 }
+
 changePlanet();
+
+function crewHTML(role, name, bio) {
+  crewContent.innerHTML = `<h2>${role}</h2>
+  <h1>${name}</h1> 
+  <p>
+    ${bio}
+  </p>`;
+  const img = name.toLowerCase().split(' ').join('-');
+  crewImg.innerHTML = `<img src="/assets/crew/image-${img}.png" alt=""></img>`;
+}
+
+function changeCrew() {
+  crewBtn.forEach((btn, i) => {
+    btn.addEventListener('click', e => {
+      if (e.currentTarget.classList.contains(`btn-${i + 1}`)) {
+        crewBtn.forEach(btn => (btn.style.backgroundColor = '#979797'));
+        e.currentTarget.style.backgroundColor = 'var(--text-color)';
+        crewHTML(crewObj[i].role, crewObj[i].name, crewObj[i].bio);
+      }
+    });
+  });
+}
+changeCrew();
+console.log('Douglas Hurley'.toLowerCase().split(' ').join('-'));
