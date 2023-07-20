@@ -194,7 +194,7 @@ exploreBtn.addEventListener('click', () => {
   planet.style.display = 'flex';
 });
 function planetHTML(planet, description, distance, time) {
-  destination.innerHTML = `<img class="planet-img" src="/assets/destination/image-${planet}.webp" alt="" />
+  destination.innerHTML = `<img class="planet-img" src="./assets/destination/image-${planet}.png" alt="" />
   <div class="planet-section">
     <h1 class="planet-title">${planet}</h1>
     <p class="planet-description">
@@ -245,7 +245,7 @@ function crewHTML(role, name, bio) {
     ${bio}
   </p>`;
   const img = name.toLowerCase().split(' ').join('-');
-  crewImg.innerHTML = `<img src="/assets/crew/image-${img}.png" alt=""></img>`;
+  crewImg.innerHTML = `<img src="./assets/crew/image-${img}.png" alt=""></img>`;
 }
 
 function changeCrew() {
@@ -261,7 +261,6 @@ function changeCrew() {
 }
 changeCrew();
 
-
 function techHTML(name, description) {
   const img = name.toLowerCase().split(' ').join('-');
   techContent.innerHTML = `<div class="tech-content"> 
@@ -272,7 +271,7 @@ function techHTML(name, description) {
   </p>
 </div>
 <img
-src="/assets/technology/image-${img}-portrait.jpg"
+src="./assets/technology/image-${img}-portrait.jpg"
 alt=""
 />`;
 }
